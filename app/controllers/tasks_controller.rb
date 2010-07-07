@@ -44,8 +44,6 @@ class TasksController < ApplicationController
     @task = Task.new(params[:task])
     @task.options = { 'identifier' => 'i-00000001' }
 
-    Time.zone = @task.name
-
     schedule = build_schedule(params)
     @task.schedule = schedule
     @task.next_occurence = schedule.first[0]
