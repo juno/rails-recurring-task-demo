@@ -1,3 +1,39 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <td><%=h @task.id %></td>
+  </tr>
+
+  <tr>
+    <th>Name</th>
+    <td><%=h @task.name %></td>
+  </tr>
+
+  <tr>
+    <th>State</th>
+    <td><%=h @task.state %></td>
+  </tr>
+
+  <tr>
+    <th>Action</th>
+    <td><%=h @task.action %></td>
+  </tr>
+
+  <tr>
+    <th>Options</th>
+    <td><%=h @task.options %></td>
+  </tr>
+
+  <tr>
+    <th>Schedule</th>
+    <td><%=h @task.schedule.to_s %></td>
+  </tr>
+
+  <tr>
+    <th>Next occurence</th>
+    <td><%=h @task.next_occurence %></td>
+  </tr>
+</table>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

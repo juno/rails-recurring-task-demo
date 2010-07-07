@@ -44,9 +44,11 @@ class TasksController < ApplicationController
     @task = Task.new(params[:task])
     @task.options = { 'identifier' => 'i-00000001' }
 
+    Time.zone = @task.name
+
     schedule = build_schedule(params)
-    @task.schedule = schedule.to_hash
-    @task.next_occurence = schedule.first
+    @task.schedule = schedule
+    @task.next_occurence = schedule.first[0]
 
     respond_to do |format|
       if @task.save
@@ -94,13 +96,15 @@ class TasksController < ApplicationController
   # @param [Hash] params
   # @return [IceCube::Schedule]
   def build_schedule(params)
-    start_at = Time.now
+    start_at = Time.zone.now
 
     rule = IceCube::Rule.weekly
     params[:weekdays].each do |weekday|
       rule.day(weekday.to_sym)
     end
     rule.hour_of_day(params[:hour].to_i)
+    rule.minute_of_hour(0)
+    rule.second_of_minute(0)
 
     schedule = IceCube::Schedule.new(start_at)
     schedule.add_recurrence_rule(rule)
