@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100707075605) do
+ActiveRecord::Schema.define(:version => 20100707084131) do
 
   create_table "tasks", :force => true do |t|
     t.string   "state",          :null => false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20100707075605) do
     t.datetime "next_occurence"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name",           :null => false
   end
 
 end

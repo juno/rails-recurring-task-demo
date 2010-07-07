@@ -2,10 +2,19 @@
 
 <table>
   <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>State</th>
+    <th>Next occurence</th>
+    <th colspan="3">Action</th>
   </tr>
 
 <% @tasks.each do |task| %>
   <tr>
+    <td><%=h task.id %></td>
+    <td><%=h task.name %></td>
+    <td><%=h task.state %></td>
+    <td><%=h task.next_occurence %></td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
     <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>

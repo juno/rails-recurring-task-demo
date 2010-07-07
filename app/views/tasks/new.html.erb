@@ -4,6 +4,41 @@
   <%= f.error_messages %>
 
   <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </p>
+
+  <p>
+    <%= f.label :action %>
+    <%= f.text_field :action %>
+  </p>
+
+  <fieldset>
+    <legend>繰り返し</legend>
+
+    <label for="weekdays">曜日:</label>
+    <% for day in @weekdays do %>
+      <br />
+      <input type="checkbox" id="weekdays_<%=h day[:id] %>" name="weekdays[]" value="<%=h day[:id] %>" />
+      <label for="weekdays_<%=h day[:id] %>"><%= day[:name] %></label>
+    <% end -%>
+
+    <p>
+      <%= f.label :hour %>
+      <select name="hour">
+        <% 24.times do |i| -%>
+          <option value="<%=h i %>"><%=h i %></option>
+        <% end -%>
+      </select> 時
+    </p>
+  </fieldset>
+
+  <p>
     <%= f.submit 'Create' %>
   </p>
 <% end %>

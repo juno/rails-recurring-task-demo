@@ -12,8 +12,9 @@ describe Task do
   end
 end
 
+
 # == Schema Information
-# Schema version: 20100707075605
+# Schema version: 20100707084131
 #
 # Table name: tasks
 #
@@ -25,5 +26,6 @@ end
 #  next_occurence :datetime
 #  created_at     :datetime
 #  updated_at     :datetime
+#  name           :string(255)     not null
 #
 
