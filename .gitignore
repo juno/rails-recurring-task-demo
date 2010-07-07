@@ -1,1 +1,4 @@
 log/*.log
+tmp/cache/*
+tmp/sessions/*
+tmp/sockets/*
